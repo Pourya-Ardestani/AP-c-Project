@@ -27,10 +27,10 @@ int main()
     vector<float> grades ;
     for (int i = 0; i < numberOfStudents; i++)
     {
-        cout << i <<". student: "<< endl; 
+        cout << i+1 <<". student: "<< endl; 
         cout << "Enter his/her name: ";
         cin >> new_name ;
-        cout << "\nEnter grade: ";
+        cout << "Enter grade: ";
         cin >> new_grade;
         Student a(new_name, new_grade);
         cout << endl;
@@ -59,10 +59,10 @@ Student::Student(string s, float g)
 
 void sort(vector<float> & grades)
 {
-    int len = grades.size();
-    for(int i = 0 ; i< len ; i++)
+    int len = grades.size() ;
+    for(int j = 0 ; j < len ; j++)
     {
-        for(int j = len - i ; j> 0 ; j--)
+        for(int i = len-2  ; i>=0 ; i--)
         {
             if (grades.at(i) > grades.at(i+1))
             {
@@ -76,7 +76,7 @@ void sort(vector<float> & grades)
 void printVector(vector<float> &vec)
 {
     cout << "sorted grades are: ";
-    for (int i=0;  i <vec.size();  i++)
+    for (int i=0;  i < vec.size();  i++)
     {
         cout<<vec.at(i)<<" ";
     }
