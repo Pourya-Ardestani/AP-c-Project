@@ -130,6 +130,7 @@ void ClassLesson::setStudents()
         grades.push_back(new_grade) ;
     }
 }
+
 void ClassLesson::sortStudents()
 {
     for(int i=countofStudents-1 ; i > 0 ; i--)
@@ -159,4 +160,3 @@ void ClassLesson::printStudentGrade()
     sort(grades);
     printGrade(grades);       
 }
-	
