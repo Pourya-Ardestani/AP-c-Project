@@ -49,20 +49,6 @@ int main()
     return 0;
 }
 
-void Student::setGrade(float n )
-{
-    grade = n ; 
-}
-float Student::getGrade()
-{
-    return grade;
-}
-Student::Student(string s, float g)
-{
-    grade = g ;
-    name = s ;
-}
-
 
 void sort(vector<float> & grades)
 {
@@ -79,26 +65,28 @@ void sort(vector<float> & grades)
             }
         }
     }
+
 }
 
-void ClassLesson::printGrade(vector<float> &vec)
+//Student Class
+void Student::setGrade(float n )
 {
-    for (int i=0; i < vec.size();  i++)
-    {
-        cout << vec.at(i) <<" ";
-    }
-    cout<<endl;
+    grade = n ; 
 }
 
-void ClassLesson::printNames(vector<Student> & vec)
+
+float Student::getGrade()
 {
-    for (int i=0; i < vec.size();  i++)
-    {
-        cout << vec.at(i).getName() <<" ";
-    }
-    cout<<endl;
-	
+    return grade;
 }
+
+
+Student::Student(string s, float g)
+{
+    grade = g ;
+    name = s ;
+}
+
 
 string Student::getName()
 {
@@ -113,6 +101,8 @@ ClassLesson::ClassLesson(int c)
     countofStudents = c ;
     setStudents();
 }
+
+
 void ClassLesson::setStudents()
 {
     string new_name;
@@ -131,6 +121,18 @@ void ClassLesson::setStudents()
     }
 }
 
+
+void ClassLesson::printNames(vector<Student> & vec)
+{
+    for (int i=0; i < vec.size();  i++)
+    {
+        cout << vec.at(i).getName() <<" ";
+    }
+    cout<<endl;
+	
+}
+
+
 void ClassLesson::sortStudents()
 {
     for(int i=countofStudents-1 ; i > 0 ; i--)
@@ -146,7 +148,18 @@ void ClassLesson::sortStudents()
         }
     }   
 }
+
+
+void ClassLesson::printGrade(vector<float> &vec)
+{
+    for (int i=0; i < vec.size();  i++)
+    {
+        cout << vec.at(i) <<" ";
+    }
+    cout<<endl;
+}
     
+
 void ClassLesson::printStudentsName()
 {
     cout << "Here is the student list witch sorted by their grades :\n";
@@ -154,6 +167,7 @@ void ClassLesson::printStudentsName()
     printNames(listofStudents);
 }
 	
+
 void ClassLesson::printStudentGrade()
 {
     cout << "Here is their Sorted grades:\n";
