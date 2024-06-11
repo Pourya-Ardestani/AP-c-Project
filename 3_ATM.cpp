@@ -2,12 +2,12 @@
 using namespace std;
 
 #define PASSWORD  1234
-#define FIRST_CREDIT 1,240,500 // tooman
+#define FIRST_CREDIT 1240500 // tooman
 
 int o_o(float &cash , int amount)
 {
     int count = 0;
-    while(cash > amount)
+    while(cash >= amount)
     {
         cash -= amount ;
         count ++;
@@ -19,20 +19,21 @@ int o_o(float &cash , int amount)
 void witchBill(float cash)
 {
     cout << "here is " << cash <<" in these bills :\n";
-    int count = o_o(cash,100000);
-    cout << "the "<<count << "of 100000"<< endl ;
+    
+	int count = o_o(cash,200000);
+    cout << "the "<<count << " of 200000"<< endl ;
 
-    count = o_o(cash,200000);
-    cout << "the "<<count << "of 200000"<< endl ;
+    count = o_o(cash,100000);
+    cout << "the "<<count << " of 100000"<< endl ;
 
     count = o_o(cash,50000);
-    cout << "the "<<count << "of 50000"<< endl ;
+    cout << "the "<<count << " of 50000"<< endl ;
 
     count = o_o(cash,10000);
-    cout << "the "<<count << "of 10000"<< endl ;
+    cout << "the "<<count << " of 10000"<< endl ;
 
     count = o_o(cash,5000);
-    cout << "the "<<count << "of 5000"<< endl ;
+    cout << "the "<<count << " of 5000"<< endl ;
 }  
 
 class Card
@@ -81,40 +82,41 @@ class ATM
     ATM()
     {
         int h , i = 0 , password; 
+        cout << "hi welcome \nPlease Enter your password: ";
         while(i<3)
         {
-            cout << "hi welcome \nPlease Enter your password: ";
+            
             cin >> password ;
             if (password == card.getPassword())
             {
-                cout << "what operation do you want to do? \n1.exchange money\n2.transfer money to another bank card \n3.show account balance";
+                cout << "\nwhat operation do you want to do? \n1.exchange money\n2.transfer money to another bank card \n3.show account balance \nchoose one: ";
                 cin >> h ;
                 switch(h)
                 {
-                    case 1 : exchangCashMoney();
-                    case 2 : transferMoney();
-                    case 3 : mojody();
+                    case 1 : exchangCashMoney();break;
+                    case 2 : transferMoney();break;
+                    case 3 : mojody();break;
+                    default: cout <<"INVALID inpute" ;
                 }
+                break;
             }
-
-
+            cout << "\nInccorect password!\nPlease Enter your password again: ";
         }
-
         
     }
     void exchangCashMoney() // preffer how to exchange money 
     {
         float t_cash;
-        cout << "Please Enter how much money do you want to cash withdrawal ";
+        cout << "Please Enter how much money do you want to cash withdrawal: ";
         cin >> t_cash ;
         if (t_cash > card.getCredit())
         {
-            cout << "there is not enough money in you account to withdrawal" ;
+            cout << "there is not enough money in you account to withdrawal " ;
         }
         else
         {
             witchBill(t_cash);  
-            cout<< "the amount has reduced from your credit ! \n here is your bill in cash ";
+            cout<< "the amount has reduced from your credit !  ";
             card.reduceMoney(t_cash);            
         }
     }
@@ -148,6 +150,5 @@ class ATM
 
 int main()
 {
-    ATM machine_1;
-
+    ATM machine;
 }
